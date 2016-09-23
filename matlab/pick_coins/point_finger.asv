@@ -1,0 +1,25 @@
+function res = point_finger(x,y, ser)
+pause(0.1)
+
+[ts, ta, tw] = transform_to_servo_positions(x, y); % theta should be 45 degrees
+
+if ts > 0 && tw > 0 && ta > 0
+    %ser=open_serial();
+    %set_servo_positions(ts, ta, tw, ser);
+    disp('theta values')
+    ts
+    ta
+    tw
+    int_to_bytes(ts)
+    int_to_bytes(ta)
+    set_servo_positions(ts, ta, tw, ser);
+    %set_servo_positions(72, 58, 70, ser);
+    pause(2);
+    %close_serial(ser); 
+    res = 1
+else
+    disp('out of range servo angles')
+    res = 0
+end
+
+pause(1)

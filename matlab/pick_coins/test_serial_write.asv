@@ -1,0 +1,39 @@
+
+% all measurements in cm
+
+% ground specs
+ground_width = 28.0;
+ground_height = 21.5;
+
+% robot limits
+d_min = 8.0;
+d_max = 17.0;
+
+% shoulder specs
+shoulder_length = 11.5;
+theta_s_min = 0;
+theta_s_max = 180;
+
+% arm  specs
+arm_length = 6.0;
+
+% wrist specs
+wrist_length = 15.0;
+
+global ser;
+delete(instrfindall) % to clean all ports
+
+def_pos_shoulder_servo = 0;
+def_pos_arm_servo = 0;
+def_pos_wrist_servo = 130; 
+
+ser=open_serial();
+set_servo_positions(def_pos_shoulder_servo, def_pos_arm_servo, def_pos_wrist_servo, ser);
+close_serial(ser);
+
+check_shoulder_servo(pos_arm_servo, def_pos_wrist_servo);
+check_wrist_servo(def_pos_shoulder_servo, def_pos_arm_servo);
+check_arm_servo(def_pos_shoulder_servo, def_pos_wrist_servo);
+
+
+
