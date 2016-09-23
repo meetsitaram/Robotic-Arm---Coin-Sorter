@@ -94,7 +94,7 @@ void loop() {
      
      //myservo1.write(def_pos_s1); 
      //myservo2.write(def_pos_s2); 
-     //myservo3.write(def_pos_s3);     
+     //myservo3.write(def_pos_s3);      
     
         
 //    for(int i=0;i<9;++i) {
